@@ -24,7 +24,6 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pwd
         curl -sSL https://install.python-poetry.org | python3 -
         poetry config virtualenvs.create false
         cd backend
@@ -32,7 +31,6 @@ jobs:
 
     - name: Format and lint with Black
       run: |
-        pwd
         black .
 
     # frontend analysis and linting
@@ -40,7 +38,6 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pwd
         pytest
     
     # frontend testing
@@ -48,7 +45,4 @@ jobs:
 
     - name: Build docker images
       run: |
-        pwd
-        cd docker
-        pwd
-        docker-compose build
+        docker-compose -f docker/docker-compose.yaml build
