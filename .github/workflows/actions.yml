@@ -45,5 +45,9 @@ jobs:
 
     - name: Build docker images
       run: |
+        pwd
         cd ..
-        docker-compose -f docker/docker-compose.yaml build
+        pwd
+        cd docker
+        pwd
+        docker-compose build
