@@ -49,6 +49,7 @@ jobs:
 
     - name: Test frontend with npm test
       run: |
+        cd frontend
         npm run build --if-present
         npm test
 
