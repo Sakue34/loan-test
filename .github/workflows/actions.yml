@@ -34,7 +34,7 @@ jobs:
     - name: Install frontend dependencies
       run: |
         cd frontend
-        nmp ci
+        npm ci
 
     - name: Format and lint backend with Black
       run: |
