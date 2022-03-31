@@ -1,0 +1,105 @@
+body{
+    background: linear-gradient(180deg, rgba(173, 229, 247, 0) -13.35%, rgba(6, 223, 200, 0.4) 74.71%, #5E60CE 124.33%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.homepageFooter{
+    display: flex;
+    background-color: #ffffff;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.footerImage{
+    display: flex;
+    width: 15%;
+    height: auto;
+}
+
+.homepageContent{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 2fr 0.5fr 1.3fr 1fr 1fr 2fr;
+}
+
+.logoHomepage{
+    width: 75%;
+    grid-area: 3/2/4/6;
+}
+
+.semiHeader{
+    grid-area: 4/2/5/6;
+}
+
+.homepageCTA{
+    grid-area: 5/2/6/6;
+}
+
+.illustrationHomepage{
+    justify-self: center;
+    align-self: center;
+    grid-area: 1/7/7/13;
+    width: 45vmax;
+    height: auto;
+    padding: 3rem;
+}
+
+
+.illustrationHomepageSmall{
+    display: none;
+}
+
+@media screen and (max-width: 1400px){
+    .homepageContent{
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        background: #F9F6FB;
+    }
+
+    .footerImage{
+        width: 35%;
+        height: auto;
+    }
+
+    .homepageFooter{
+        padding: 2rem;
+    }
+
+    .illustrationHomepage{
+        display: none;
+    }
+
+    .homepageContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logoHomepage{
+        width: 40%;
+        order: 1;
+        padding: 2rem 0rem;
+    }
+    
+    .semiHeader{
+        order: 3;
+        text-align: center;
+        padding: 2rem 0rem;
+    }
+    
+    .homepageCTA{
+        order: 4;
+        padding: 2rem 0rem;
+    }
+
+    .illustrationHomepageSmall{
+        order: 2;
+        display: flex;
+    }
+}
