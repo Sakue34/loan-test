@@ -6,7 +6,7 @@ const Navbar = ({toggle}) => {
     <>
         <Nav>
             <NavLink to='/'>
-                <img src={loanlyLogo} width="120px" height="auto"/>
+                <img src={loanlyLogo} alt="Loanly logo" width="120px" height="auto"/>
             </NavLink>
             <Icon onClick={toggle}>
                 <HamburgerIcon />
