@@ -15,8 +15,8 @@ const Navbar = ({toggle}) => {
                 <NavBtn>
                     <NavBtnLink to="/kalkulator">Kalkulator</NavBtnLink>
                 </NavBtn>
-                <NavLink to="/jak-obliczamy-rate" activeStyle>Jak obliczamy ratę?</NavLink>
-                <NavLink to="/przydatne-pojecia" activeStyle>Przydatne pojecia</NavLink>
+                <NavLink to="/jak-obliczamy-rate">Jak obliczamy ratę?</NavLink>
+                <NavLink to="/przydatne-pojecia">Przydatne pojecia</NavLink>
             </NavMenu>
 
         </Nav>

@@ -15,7 +15,7 @@ const Home = () => {
       <Content className='homepageContent'>
             <img className="logoHomepage" src={loanlyLogo} alt="" />
             <SemiHeader className='semiHeader'>
-                Wszysto o kredycie hipotecznym <br></br>w jednym miejscu!
+                Wszystko o kredycie hipotecznym <br></br>w jednym miejscu!
             </SemiHeader>
             <div className = 'homepageCTA'>
               <GradientButton to="/kalkulator">Oblicz ratę!</GradientButton>
