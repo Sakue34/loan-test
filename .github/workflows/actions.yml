@@ -2,9 +2,9 @@ name: innovativeproject-loancalculator
 
 on:
   push:
-    branches: [**]
+    branches: '**'
   pull_request:
-    branches: [**]
+    branches: '**'
 
 jobs:
   #setup-backend-environment:
