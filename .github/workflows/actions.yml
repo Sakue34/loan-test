@@ -50,6 +50,11 @@ jobs:
         npm ci
 
   lint-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+  
     - name: Format and lint frontend with eslint and prettier
       needs: setup-frontend-environment
       run: |
@@ -59,6 +64,11 @@ jobs:
   
   
   test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+  
     - name: Test frontend with npm test
       need: lint-frontend
       run: |
