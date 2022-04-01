@@ -67,7 +67,7 @@ jobs:
         
     - name: Format and lint backend with Black
       run: |
-        cd backend
+        source .venv/bin/activate
         poetry run black --check .    
     
   test-backend:
@@ -98,7 +98,7 @@ jobs:
     
     - name: Test backend with pytest
       run: |
-        cd backend
+        source .venv/bin/activate
         poetry run pytest
   
   setup-frontend:
