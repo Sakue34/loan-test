@@ -40,6 +40,7 @@ jobs:
         
     - name: Format and lint backend with Black
       run: |
+        cd backend
         poetry run black --check .    
     
   test-backend:
@@ -76,7 +77,7 @@ jobs:
     - name: Test backend with pytest
       run: |
         cd backend
-        pytest
+        poetry run pytest
   
   lint-frontend:
     runs-on: ubuntu-latest
