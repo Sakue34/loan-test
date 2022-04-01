@@ -7,24 +7,24 @@ on:
     branches: '**'
 
 jobs:
-  lint-backend:
+  setup-backend:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2    
 
     - name: Set up Python 3.9.10
       uses: actions/setup-python@v2
       with:
         python-version: "3.9.10"
-    
+
     - name: Install poetry
       uses: snok/install-poetry@v1.0.0
       with:
         virtualenvs-create: true
         virtualenvs-in-project: false
         version: 1.1.13
-
+    
     - name: Load cached venv
       id: cached-poetry-dependencies
       uses: actions/cache@v2
@@ -37,6 +37,26 @@ jobs:
         cd backend
         poetry install
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+
+
+  lint-backend:
+    runs-on: ubuntu-latest
+    needs: [setup-backend]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.9.10
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.9.10"
+
+    - name: Load cached venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v2
+      with:
+        path: .venv
+        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
         
     - name: Format and lint backend with Black
       run: |
@@ -45,6 +65,7 @@ jobs:
     
   test-backend:
     runs-on: ubuntu-latest
+    needs: [setup-backend]
     
     steps:
     - uses: actions/checkout@v2
@@ -54,25 +75,12 @@ jobs:
       with:
         python-version: "3.9.10"
     
-    - name: Install poetry
-      uses: snok/install-poetry@v1.0.0
-      with:
-        virtualenvs-create: true
-        virtualenvs-in-project: false
-        version: 1.1.13
-
     - name: Load cached venv
       id: cached-poetry-dependencies
       uses: actions/cache@v2
       with:
         path: .venv
-        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-
-    - name: Install dependencies
-      run: |
-        cd backend
-        poetry install
-      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'    
+        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}    
     
     - name: Test backend with pytest
       run: |
