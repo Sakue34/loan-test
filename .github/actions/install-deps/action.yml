@@ -24,6 +24,7 @@ runs:
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
     - name: Install dependencies
+      shell: bash
       run: |
         cd backend
         poetry install
